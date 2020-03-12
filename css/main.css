@@ -1,0 +1,260 @@
+body {
+ background-image: url("../images/bk.jpg");
+ background-color: #54AEA8;
+ background-size: cover;
+ background-repeat: no-repeat;
+
+
+}
+
+img {
+  max-width: 100%;
+  position: relative;
+  border-radius: 0 1em 0 1em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.header-img{
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+header{
+  margin-top: 0.2em;
+  border-radius: 0.5em;
+  text-align: center;
+}
+
+main {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  font-family: Candara, Copperplate, Optima, Calibri;
+  color: #175076;
+}
+
+h2 {
+  font-family: Copperplate, Optima, Calibri;
+  color: #235D85;
+  text-align: left;
+}
+
+h3 {
+  font-family: Copperplate, Optima, Calibri;
+  color: #175076;
+  margin-left: 1em;
+}
+
+section {
+  margin: 0 1.5%;
+  margin-bottom: 1em;
+}
+
+.map {
+  display: none;
+}
+
+section p {
+  font-family: Optima, Copperplate, Calibri;
+  font-size: 12px;
+  text-align: left;
+}
+
+aside {
+  display: none;
+}
+
+#container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.img-cebu-title {
+  position: absolute;
+  box-shadow: 0 0 0 0;
+  width: 30%;
+  height: 30%;
+  top: .5%;
+  left: 1%;
+}
+
+.img-cebu-tag {
+  position: absolute;
+  box-shadow: 0 0 0 0;
+  width: 30%;
+  height: 30%;
+  top: 15%;
+  left: 15%
+}
+
+.topnav {
+  text-align: center;
+}
+.topnav ul {
+  padding: 0;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.topnav li {
+  margin-bottom: .7em;
+  list-style-type: none;
+  display: block;
+}
+/* Navbar links */
+.topnav a{
+  font-family: Copperplate, Optima, Calibri;
+  color: #71B7ED;
+  text-decoration: none;
+  font-size: 14px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 2em;
+  margin: 0.3em;
+  padding: 0.4em;
+  max-width: 100%
+}
+
+.topnav a:hover {
+  color: #ffffff;
+}
+
+.mobile {
+  display: inline;
+}
+
+.desktop {
+  display: none;
+}
+
+
+footer {
+  font-size: 0.7em;
+  text-align: center;
+  margin-top: 5%;
+}
+
+@media only screen and (min-width: 481px) {
+  .mobile {
+    display: inline;
+  }
+
+  .desktop {
+    display: none;
+  }
+
+  .topnav li {
+    display: inline;
+  }
+
+  .img-cebu-title {
+    position: absolute;
+    box-shadow: 0 0 0 0;
+    width: 40%;
+    height: 40%;
+    top: 15%;
+    left: 0;
+  }
+
+  .img-cebu-tag {
+    position: absolute;
+    box-shadow: 0 0 0 0;
+    width: 30%;
+    height: 30%;
+    top: 40%;
+    left: 15%;
+  }
+
+}
+
+@media only screen and (min-width: 860px) {
+  .mobile {
+    display: none;
+  }
+  .desktop {
+    display: inline;
+  }
+  main {
+    float: right;
+  }
+
+  .topnav {
+    position: absolute;
+    top: 4px;
+    right: 16px;
+  }
+
+  /* Navbar links */
+  .topnav a{
+    font-family: Copperplate, Optima, Calibri;
+    color: #71B7ED;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 14px;
+    box-shadow: 0 0 0 0;
+    border-radius: 0;
+  }
+
+  .topnav li {
+    display: inline-block;
+  }
+
+  .topnav a:hover {
+    color: #ffffff;
+  }
+
+  .map {
+    display: inline;
+    width: 45%;
+    height: 45%;
+    float:left;
+  }
+
+  .img-cebu-title {
+    position: absolute;
+    box-shadow: 0 0 0 0;
+    width: 50%;
+    height: 50%;
+    top: 25%;
+    left: -5%;
+  }
+
+  .img-cebu-tag {
+    position: absolute;
+    box-shadow: 0 0 0 0;
+    width: 35%;
+    height: 35%;
+    top: 58%;
+    left: 15%;
+  }
+  aside {
+    display: inline;
+    font-family: Copperplate, Optima, Calibri;
+    font-size: 12px;
+    padding: 1em;
+    float: right;
+    margin: 0 1.5%;
+    width: 25%;
+  }
+
+  section {
+    float:  left;
+    width: 63%;
+  }
+
+  section p {
+    float: right;
+    width: 50%;
+    margin-left: .5em;
+  }
+
+  h2 {
+    float: right;
+    width: 50%;
+  }
+}
