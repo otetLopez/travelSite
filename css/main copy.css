@@ -1,0 +1,254 @@
+
+
+header{
+  margin-top: 0.2em;
+  border-radius: 0.5em;
+  text-align: center;
+}
+
+main {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+aside {
+  display: none;
+}
+
+#container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.topnav_1 {
+  text-align: center;
+}
+.topnav_1 ul {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.topnav_1 li {
+  margin-bottom: .7em;
+  list-style-type: none;
+  display: block;
+}
+/* Navbar links */
+.topnav_1 a{
+  font-family: Copperplate, Optima, Calibri;
+  color: #71B7ED;
+  text-decoration: none;
+  font-size: 14px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 2em;
+  margin: 0.3em;
+  padding: 0.4em;
+  max-width: 100%
+}
+
+.topnav_1 a:hover {
+  color: #ffffff;
+}
+
+footer {
+  font-size: 0.7em;
+  text-align: center;
+  margin-top: 5%;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+@media only screen and (min-width: 481px) {
+  .mobile {
+    display: inline;
+  }
+
+  .desktop {
+    display: none;
+  }
+
+  .topnav_1 li {
+    display: inline;
+  }
+
+  .img-cebu-title {
+    position: absolute;
+    box-shadow: 0 0 0 0;
+    width: 40%;
+    height: 40%;
+    top: 15%;
+    left: 0;
+  }
+
+  .img-cebu-tag {
+    position: absolute;
+    box-shadow: 0 0 0 0;
+    width: 30%;
+    height: 30%;
+    top: 40%;
+    left: 15%;
+  }
+}
+
+/* For the Log In */
+/* Full-width input fields */
+
+
+@media only screen and (min-width: 860px) {
+  .mobile {
+    display: none;
+  }
+  .desktop {
+    display: inline;
+  }
+  main {
+    float: right;
+  }
+
+  .topnav_1 {
+    position:  fixed;
+    top: 15px;
+    left: 8%;
+  }
+
+  /* Navbar links */
+  .topnav_1 a{
+    font-family: Copperplate, Optima, Calibri;
+    color: #71B7ED;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    box-shadow: 0 0 0 0;
+    border-radius: 0;
+  }
+
+  .topnav_1 button{
+    font-family: Copperplate, Optima, Calibri;
+    color: #71B7ED;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 14px;
+    background: none;
+    border: none;
+  }
+
+  .topnav_1 li {
+    display: inline-block;
+  }
+
+  .topnav_1 a:hover {
+    color: #ffffff;
+  }
+
+  .topnav_1 button:hover {
+    color: #ffffff;
+  }
+
+  .topnav_2 {
+    position:  fixed;
+    top: 0;
+    right: 16px;
+  }
+
+  /* Navbar links */
+  .topnav_2 a{
+    font-family: Copperplate, Optima, Calibri;
+    color: #71B7ED;
+    text-align: center;
+    /* padding: 14px 16px; */
+    text-decoration: none;
+    font-size: 14px;
+    box-shadow: 0 0 0 0;
+    border-radius: 0;
+  }
+
+  .topnav_2 button{
+    font-family: Copperplate, Optima, Calibri;
+    color: #71B7ED;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 14px;
+    background: none;
+    border: none;
+  }
+
+  .topnav_2 li {
+    display: inline-block;
+  }
+
+  .topnav_2 a:hover {
+    color: #ffffff;
+  }
+
+  .topnav_2 button:hover {
+    color: #ffffff;
+  }
+
+
+  .logo {
+    position: fixed;
+    box-shadow: 0 0 0 0;
+    width: 5%;
+    height: 10%;
+    left: 2%;
+    top: 3%;
+  }
+
+  .map {
+    display: inline;
+    width: 45%;
+    height: 45%;
+    float:left;
+  }
+
+  aside {
+    display: inline;
+    font-family: Copperplate, Optima, Calibri;
+    font-size: 12px;
+    padding: 1em;
+    float: right;
+    margin: 0 1.5%;
+    width: 25%;
+  }
+
+  section {
+    float:  left;
+    width: 63%;
+  }
+
+  section p {
+    float: right;
+    width: 50%;
+    margin-left: .5em;
+  }
+
+
+
+
+  .content {
+    padding: 16px;
+  }
+
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  .sticky + .content {
+    padding-top: 102px;
+  }
+
+}
