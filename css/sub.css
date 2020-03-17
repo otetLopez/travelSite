@@ -59,7 +59,6 @@ h2 {
 h3 {
   font-family: Copperplate, Optima, Calibri;
   color: #175076;
-  margin-left: 1em;
 }
 
 section p {
@@ -445,6 +444,13 @@ footer {
 
   .content {
     padding: 16px;
+  }
+
+  .about {
+    margin-left: 5em;
+  }
+  .about p {
+    text-align: left
   }
 
   .sticky {
