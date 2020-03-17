@@ -28,7 +28,7 @@
         <div class="topnav_2">
           <ul>
             <li><a href="myList.html">My List</a></li>
-            <li><button type="button" name="button">Register</button> </li>
+            <li><button type="button" name="button" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Register</button></li>
             <li><button type="button" name="button" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Log On</button></li>
           </ul>
         </div>
@@ -54,7 +54,7 @@
               </ul>
 
               <p> <a href="tel:63323463208"><h3>Inquire Today!</h3></a> </p>
-              <h3>Office Location: 265 Yorkland Blvd Toronto ON A1B 2C3</h3> 
+              <h3>Office Location: 265 Yorkland Blvd Toronto ON A1B 2C3</h3>
               <h3>Office Hours: </h3>
               <p>&nbsp; &nbsp; &nbsp; &nbsp;Monday - Friday 9:00am - 6:00pm<br>
                 &nbsp; &nbsp; &nbsp; &nbsp;Saturday: 9:00am - 12:00pm<br>
@@ -91,7 +91,7 @@
             <form class="modal-content animate" action="/action_page.php" method="post">
             <div class="imgcontainer">
               <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-              <img src="images/avatar.png" alt="Avatar" class="avatar">
+              <!-- <img src="images/avatar.png" alt="Avatar" class="avatar"> -->
             </div>
 
             <div class="container">
@@ -113,6 +113,30 @@
             </div>
           </form>
         </div>
+        <div id="id02" class="modal">
+          <form class="modal-content animate" action="/action_page.php" method="post">
+          <div class="imgcontainer">
+            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+          </div>
+          <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <button type="submit">REGISTER!</button>
+            <label>
+              <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+          </div>
+
+          <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+          </div>
+        </form>
+      </div>
       </main>
       <footer>
         <!-- You have a footer containing social media links and the copyright of your page -->
