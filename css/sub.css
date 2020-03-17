@@ -1,3 +1,11 @@
+.mobile {
+  display: inline;
+}
+.desktop {
+  display: none;
+}
+
+/* Common CSS in every screen size */
 body {
  background-image: url("../images/bk.jpg");
  background-color: #54AEA8;
@@ -7,16 +15,7 @@ body {
 
 img {
   max-width: 100%;
-  position: relative;
-  border-radius: 0 1em 0 1em;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.header-img{
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
 }
 
 header{
@@ -26,119 +25,254 @@ header{
 }
 
 main {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-h1 {
-  margin-left: 0.5em;
-  font-family: Candara, Copperplate, Optima, Calibri;
-  color: #175076;
+  font-family: Optima, Copperplate, Calibri;
+  font-size: 12px;
 }
 
 #container {
   width: 100%;
+  /* margin-left: auto;
+  margin-right: auto; */
+}
+
+
+.header-img{
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 0 0;
+  position: relative;
+  top: 1%;
 }
 
-.img-cebu-title {
+h1 {
+  font-family: Candara, Copperplate, Optima, Calibri;
+  color: #175076;
+}
+
+h2 {
+  font-family: Copperplate, Optima, Calibri;
+  color: #175076;
+}
+
+h3 {
+  font-family: Copperplate, Optima, Calibri;
+  color: #175076;
+  margin-left: 1em;
+}
+
+section p {
+  font-family: Optima, Copperplate, Calibri;
+  font-size: 12px;
+  text-align: left;
+}
+/* ******************************** */
+
+/* This is for the navigation links */
+
+/* .navcontainer {
+  top: 10px;
+  left: 16px;
+  padding: 20px 0;
   position: absolute;
+} */
+
+/* .logo {
   box-shadow: 0 0 0 0;
-  width: 30%;
-  height: 30%;
-  top: .5%;
-  left: 1%;
+  width: 3%;
+  height: 8%;
+  margin-left: 5%;
+} */
+
+.topnav_1 {
+  top: 1%
 }
 
-.img-cebu-tag {
-  position: absolute;
-  box-shadow: 0 0 0 0;
-  width: 30%;
-  height: 30%;
-  top: 15%;
-  left: 15%
-}
-
-.topnav {
-  text-align: center;
-}
-.topnav ul {
-  padding: 0;
+.topnav_1 ul {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
 
-.topnav li {
+.topnav_1 li {
   margin-bottom: .7em;
+  margin-left: .7em;
   list-style-type: none;
   display: block;
 }
-/* Navbar links */
-.topnav a{
+
+.topnav_1 a{
   font-family: Copperplate, Optima, Calibri;
   color: #71B7ED;
+  text-align: center;
   text-decoration: none;
   font-size: 14px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 2em;
-  margin: 0.3em;
-  padding: 0.4em;
-  max-width: 100%
+  box-shadow: 0 0 0 0;
+  border-radius: 0;
 }
 
-.topnav a:hover {
+.topnav_1 a:hover {
   color: #ffffff;
 }
 
-.mobile {
-  display: inline;
+/* This is for the log in */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
-.desktop {
-  display: none;
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
 }
 
-p {
-  margin-left: 1.5em;
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
 }
 
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
 
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+  font-family: Optima, Copperplate, Calibri;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)}
+  to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
+}
+
+/* This is for the footer and social links */
 footer {
   font-size: 0.7em;
   text-align: center;
   margin-top: 5%;
 }
 
-@media only screen and (min-width: 481px) {
-  .mobile {
-    display: inline;
-  }
+/* Style all font awesome icons */
+.fa {
+  padding: 10px;
+  font-size: 100px;
+  width: 15px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
 
-  .desktop {
-    display: none;
-  }
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
 
-  .topnav li {
-    display: inline;
-  }
+/* Set a specific color for each brand */
 
-  .img-cebu-title {
-    position: absolute;
-    box-shadow: 0 0 0 0;
-    width: 40%;
-    height: 40%;
-    top: 15%;
-    left: 0;
-  }
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
 
-  .img-cebu-tag {
-    position: absolute;
-    box-shadow: 0 0 0 0;
-    width: 30%;
-    height: 30%;
-    top: 40%;
-    left: 15%;
+/* Twitter */
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
+}
+
+.fa-skype {
+  background: #00aff0;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+/* ******************************** */
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
   }
 }
 
@@ -150,47 +284,199 @@ footer {
     display: inline;
   }
 
-  .topnav {
+  /* .navcontainer {
+    margin-left: 0;
+  } */
+
+  .navcontainer h3 {
+    left: 5%;
     position: absolute;
-    top: 4px;
+    width: 100%
+  }
+
+  .topnav_1 {
+    position:  fixed;
+    top: 15px;
+    left: 1%;
+  }
+
+  /* Navbar links */
+  .topnav_1 a{
+    font-family: Copperplate, Optima, Calibri;
+    color: #71B7ED;
+    text-align: center;
+    /* padding: 14px 16px; */
+    text-decoration: none;
+    font-size: 15px;
+    box-shadow: 0 0 0 0;
+    border-radius: 0;
+  }
+
+  .topnav_1 li {
+    display: inline-block;
+  }
+
+  .topnav_1 a:hover {
+    color: #ffffff;
+  }
+
+  .topnav_2 {
+    position:  fixed;
+    top: 0;
     right: 16px;
   }
 
   /* Navbar links */
-  .topnav a{
+  .topnav_2 a{
+    font-family: Copperplate, Optima, Calibri;
+    color: #71B7ED;
+    text-align: center;
+    /* padding: 14px 16px; */
+    text-decoration: none;
+    font-size: 15px;
+    box-shadow: 0 0 0 0;
+    border-radius: 0;
+  }
+
+  .topnav_2 button{
     font-family: Copperplate, Optima, Calibri;
     color: #71B7ED;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 14px;
-    box-shadow: 0 0 0 0;
-    border-radius: 0;
+    font-size: 15px;
+    background: none;
+    border: none;
   }
 
-  .topnav li {
+  .topnav_2 li {
     display: inline-block;
   }
 
-  .topnav a:hover {
+  .topnav_2 a:hover {
     color: #ffffff;
   }
 
-  .img-cebu-title {
-    position: absolute;
-    box-shadow: 0 0 0 0;
-    width: 50%;
-    height: 50%;
-    top: 25%;
-    left: -5%;
+  .topnav_2 button:hover {
+    color: #ffffff;
   }
 
-  .img-cebu-tag {
-    position: absolute;
+
+  .logo {
+    position: fixed;
     box-shadow: 0 0 0 0;
-    width: 35%;
-    height: 35%;
-    top: 58%;
-    left: 15%;
+    width: 5%;
+    height: 10%;
+    left: 1em;
+    top: 3%;
   }
+
+  /* .navcontainer {
+    padding: 40px 0;
+    background: #182B4F;
+    color: #182B4F;
+  } */
+
+  .content {
+    padding: 16px;
+  }
+
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  .sticky + .content {
+    padding-top: 102px;
+  }
+
+  .title {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .title h1 {
+    color: #FFFFFF;
+  }
+  .title h3 {
+    color: #FFFFFF;
+  }
+
+  .avatar {
+    height: 10%;
+    width: 10%;
+  }
+
+  /* styles for the form element */
+  form {
+    background-color: #ffffff;
+    padding: 1em;
+    width: 60%;
+    font-family: Optima, Copperplate, Calibri;
+    font-size: 10px;
+  }
+
+  /* styles for paragraphs in form */
+  form p {
+    color: #000000;
+    margin-left: inherit;
+  }
+  footer {
+    font-size: 0.7em;
+    text-align: center;
+    margin-top: 5%;
+  }
+
+  /* Style all font awesome icons */
+  .fa {
+    padding: 10px;
+    font-size: 100px;
+    width: 15px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+  }
+
+  /* Add a hover effect if you want */
+  .fa:hover {
+    opacity: 0.7;
+  }
+
+  /* Set a specific color for each brand */
+
+  /* Facebook */
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+
+  /* Twitter */
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }
+
+  .fa-pinterest {
+    background: #cb2027;
+    color: white;
+  }
+
+  .fa-skype {
+    background: #00aff0;
+    color: white;
+  }
+
+  .fa-google {
+    background: #dd4b39;
+    color: white;
+  }
+
 }

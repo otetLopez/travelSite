@@ -3,40 +3,100 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/sub.css">
-    <title>C E B U</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>three one one four</title>
   </head>
   <body>
     <div id="container">
       <header>
-        <div class="header-img">
-          <img src="images/header1.png" alt="Cebu">
-          <div class="navcontainer">
-            <div class="topnav">
-              <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="accomodation.html">Accomodation</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="about.html">About</a></li>
-              </ul>
-            </div>
+        <img class="header-img" src="images/header1.png" alt="Cebu">
+        <!--   In all your pages you have two navbars on top;
+        one containing your logo along with the links to “Home”, “Services”, “About Us” and “Contact Us” pages.
+        The other contains “Register/Login” and “My List” links.-->
+        <div class="navcontainer" id="navcontainer">
+          <img class= "logo" src="images/logo.png" alt="Travel Logo">
+          <!-- <h3>3144 Travel & Tours</h3> -->
+          <div class="topnav_1">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="about.html">About Us</a></li>
+            </ul>
           </div>
-          <img src="images/Cebu-03.png" alt="Cebu Title" class="img-cebu-title">
-          <img src="images/Cebu-05.png" alt="Cebu Title" class="img-cebu-tag">
+        </div>
+        <div class="topnav_2">
+          <ul>
+            <li><a href="myList.html">My List</a></li>
+            <li><button type="button" name="button">Register</button> </li>
+            <li><button type="button" name="button" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Log On</button></li>
+          </ul>
+        </div>
+        <div class="title">
+          <h1>Three·One·One·Four</h1>
+          <h3>Travel & Tours</h3>
         </div>
       </header>
       <main>
         <h1>Contact Us</h1>
-        <p>If you want to inquire about our tour packages, send us a message via email or mobile:</p>
-        <!-- <p>Phone Number</p> -->
-        <p>Phone Number: <a class="mobile" href="tel:63323463208">(6332) 34643208</a><span class="desktop">(6332) 34643208</span></p>
-        <!-- <p>Email Address</p> -->
-        <p>Email Address: <a href="mailto:otet.tud@gmail.com">otet.tud@gmail.com</a></p>
-      </main>
+        <p>If you want to inquire, complete the form or send us a message via email or mobile:</p>
+        <form>
+          <label for="fName">First Name:</label>
+          <input type="text" name="fName" id="fName">
+          <label for="lName">Last Name:</label>
+          <input type="text" name="lName" id="lName">
+          <label for="email">E-mail:</label>
+          <input type="email" name="email" id="email">
+          <label for="phone">Phone:</label>
+          <input type="tel" name="phone" id="phone">
 
+          <p>I would like more information about:</p>
+          <ul>
+            <li><input type="checkbox" name="grpft" id="grpft" value="grpft" class="chkbx">Accommodation</li>
+            <li><input type="checkbox" name="prtrain" id="prtrain" value="prtrain" class="chkbx">Hotel & Resorts</li>
+            <li><input type="checkbox" name="nutr" id="nutr" value="nutr" class="chkbx">Tour Packages</li>
+          </ul>
+
+          <label for="reference">Referral Source:</label>
+          <select name="reference" id="reference">
+            <option value="ad">Advertisement</option>
+            <option value="friend">Friend</option>
+            <option value="google">Google</option>
+            <option value="social">Social</option>
+            <option value="other">Other</option>
+          </select>
+
+          <br><br><br>
+          <label for="questions">Questions?</label>
+          <textarea name="questions" rows="3" cols="25"></textarea>
+
+          <input type="submit" id="submit" class="btn" value="Submit" onclick="tyAlert()">
+          <input type="reset" id="reset" class="btn" value="Reset">
+
+        </form>
+        <h3>Office Location:</h3>&nbsp; &nbsp; &nbsp; &nbsp;265 Yorkland Blvd Toronto ON A1B 2C3
+        <h3>Office Hours: </h3>
+        <p>&nbsp; &nbsp; &nbsp; &nbsp;Monday - Friday 9:00am - 6:00pm<br>
+          &nbsp; &nbsp; &nbsp; &nbsp;Saturday: 9:00am - 12:00pm<br>
+          &nbsp; &nbsp; &nbsp; &nbsp;Sunday: Closed
+        </p> <br><br>
+        <!-- <p>Phone Number</p> -->
+        <p>&nbsp; &nbsp; Phone Number: <a class="mobile" href="tel:63323463208">(6332) 34643208</a><span class="desktop">(6332) 34643208</span></p>
+        <!-- <p>Email Address</p> -->
+        <p>&nbsp; &nbsp; Email Address: <a href="mailto:otet.tud@gmail.com">otet.tud@gmail.com</a></p>
+      </main>
       <footer>
+        <!-- You have a footer containing social media links and the copyright of your page -->
         <br>&nbsp; &nbsp;<br>&nbsp; &nbsp;<br>
         &copy; Copyright 2020. All Rights Reserved. <br>
+        <br>&nbsp; &nbsp;<br>
+        <a href="mailto:otet.tud@gmail.com" class="fa fa-google"></a>
+        <a href="https://www.facebook.com/otet.lopez" class="fa fa-facebook"></a>
+        <a href="https://twitter.com/otet_tud" class="fa fa-twitter"></a>
+        <a href="https://www.pinterest.ph/otetud/" class="fa fa-pinterest"></a>
+        <a href="https://www.instagram.com/otet_tud/?hl=en" class="fa fa-instagram"></a>
+        <a href="https://www.pinterest.ph/otetud/" class="fa fa-skype"></a>
+        <br>&nbsp; &nbsp;<br><br>&nbsp; &nbsp;<br>
       </footer>
     </div>
   </body>
