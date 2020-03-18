@@ -66,6 +66,21 @@ section p {
   font-size: 12px;
   text-align: left;
 }
+
+.title {
+  display: none;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.title h1 {
+  color: #FFFFFF;
+}
+.title h3 {
+  color: #FFFFFF;
+}
 /* ******************************** */
 
 /* This is for the navigation links */
@@ -87,20 +102,19 @@ section p {
 
 .topnav_1 ul {
   margin-top: 0.5em;
-  margin-bottom: 0.5em;
 }
 
 .topnav_1 li {
   margin-bottom: .7em;
-  margin-left: .7em;
   list-style-type: none;
+  text-align: left;
   display: block;
 }
 
 .topnav_1 a{
   font-family: Copperplate, Optima, Calibri;
   color: #71B7ED;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
   font-size: 14px;
   box-shadow: 0 0 0 0;
@@ -117,12 +131,11 @@ section p {
 
 .topnav_2 ul {
   margin-top: 0.5em;
-  margin-bottom: 0.5em;
 }
 
 .topnav_2 li {
   margin-bottom: .7em;
-  margin-left: .7em;
+  text-align: left;
   list-style-type: none;
   display: block;
 }
@@ -143,8 +156,7 @@ section p {
 .topnav_2 button{
   font-family: Copperplate, Optima, Calibri;
   color: #71B7ED;
-  text-align: center;
-  padding: 14px 16px;
+  text-align: left;
   text-decoration: none;
   font-size: 15px;
   background: none;
@@ -378,6 +390,7 @@ footer {
 
   .topnav_1 li {
     display: inline-block;
+    margin-left: 1em;
   }
 
   .topnav_1 a:hover {
@@ -464,6 +477,7 @@ footer {
   }
 
   .title {
+    display: inline;
     position: absolute;
     top: 30%;
     left: 50%;
@@ -497,6 +511,7 @@ footer {
     font-family: Optima, Copperplate, Calibri;
     font-size: 10px;
     margin-left: 1em;
+    margin-right: 1em;
   }
 
   /* styles for paragraphs in form */
