@@ -483,12 +483,20 @@ footer {
   }
 
   /* styles for the form element */
-  form {
+  .contact_form {
     background-color: #ffffff;
     padding: 1em;
     width: 60%;
     font-family: Optima, Copperplate, Calibri;
     font-size: 10px;
+  }
+
+  .book_form {
+    padding: 1em;
+    width: 100%;
+    font-family: Optima, Copperplate, Calibri;
+    font-size: 10px;
+    margin-left: 1em;
   }
 
   /* styles for paragraphs in form */
@@ -534,6 +542,16 @@ footer {
     margin-left: 16px;
     margin-bottom: 1em;
   }
+
+  .todo {
+    text-align: center;
+  }
+
+  .todo img {
+    width: 50%;
+    height: 50%;
+  }
+
 
   footer {
     font-size: 0.7em;
