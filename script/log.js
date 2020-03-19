@@ -16,10 +16,13 @@ $(document).ready(function () {
     // retrieveUsers();
     for (i = 0; i <= localStorage.length; i++) {
       var usrID = "usr-" + i;
+      var pwdID = "psw-" + i;
       var currUsr = localStorage.getItem(usrID);
+      var currPwd = localStorage.getItem(pwdID);
       if(currUsr !== null) {
         usrIdx = i;
-        console.log("Retrieved user: " + currUsr);
+        console.log("Retrieved user: " + currUsr + "; " + currPwd);
+
       }
     }
 
@@ -30,6 +33,20 @@ $(document).ready(function () {
         console.log("This is the ID : " + id);
         if(id.localeCompare("log01") === 0) {
           console.log("Logging In");
+          var uname =  $('#unameLog').val();
+          var pwd =  $('#pswLog').val();
+          if(uname !== "" && pwd !== "") {
+            if(checkCredentials(uname, pwd) === true) {
+              alert("You are successfully logged")
+              clearFields();
+              dismissForm();
+            } else {
+              alert("Please check if inputted user or pasword is correct.")
+            }
+          } else {
+            alert("Please complete filling the fields")
+          }
+
         } else if (id.localeCompare("log02") === 0) {
           console.log("User Registering");
           var uname =  $('#uname').val();
@@ -61,17 +78,25 @@ $(document).ready(function () {
     });
 });
 
-function checkUser(uname) {
-
-  // Displaying all registered users
+function checkCredentials(uname, pwd) {
   for (i = 0; i <= localStorage.length; i++) {
       var usrID = "usr-" + i;
       var currUsr = localStorage.getItem(usrID);
       if(currUsr !== null) {
-        console.log("Retrieved user: " + currUsr);
+        if(currUsr.localeCompare(uname) === 0) {
+          var pwdID = "psw-" + i;
+          var currPwd = localStorage.getItem(pwdID);
+          console.log("Comparing " + currPwd + " vs " + pwd);
+          if(currPwd !== null && currPwd.localeCompare(pwd) === 0) {
+            return true;
+          }
+        }
       }
   }
+  return false;
+}
 
+function checkUser(uname) {
   for (i = 0; i <= localStorage.length; i++) {
       var usrID = "usr-" + i;
       var currUsr = localStorage.getItem(usrID);
@@ -88,6 +113,8 @@ function clearFields() {
   $('#uname').val("");
   $('#psw1').val("");
   $('#psw2').val("");
+  $('#unameLog').val("");
+  $('#pswLog').val("");
 }
 
 function dismissForm() {
