@@ -37,7 +37,8 @@ $(document).ready(function () {
     });
 
     $("button").click(function(){
-      console.log("Button Click");
+      var id = $(this).attr('id');
+      alert(id);
     });
 
 });
