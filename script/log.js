@@ -43,6 +43,7 @@ $(document).ready(function () {
               alert("Username already exist!  Try another username.")
             } else if (pwd.length < 6){
               alert("Sorry!  Your password must contain  a capital letter, two numbers, a symbol, an inspiring message, a spell, a gang sign, a heiroglyph and a blood of a virgin.")
+              alert("Just Kidding! Just input password at least length of 6");
             } else {
               var usrID = "usr-" + usrIdx;
               var pswID = "psw-" + usrIdx;
