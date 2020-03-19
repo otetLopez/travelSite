@@ -14,10 +14,11 @@ $(document).ready(function () {
     var i = 0;
     var usrIdx = 0;
     // retrieveUsers();
-    for (usrIdx = 0; usrIdx <= localStorage.length; usrIdx++) {
-      var usrID = "usr-" + usrIdx;
+    for (i = 0; i <= localStorage.length; i++) {
+      var usrID = "usr-" + i;
       var currUsr = localStorage.getItem(usrID);
       if(currUsr !== null) {
+        usrIdx = i;
         console.log("Retrieved user: " + currUsr);
       }
     }
