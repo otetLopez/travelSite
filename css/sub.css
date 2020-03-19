@@ -558,7 +558,7 @@ footer {
   div.container {
     /* text-align: center; */
     font-family: Verdana, "Lucida Console", "Courier New";
-    font-size: 0.7em;
+    /* font-size: 0.7em; */
     padding: 10px 20px;
     border-radius: 20%;
   }
