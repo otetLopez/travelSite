@@ -9,7 +9,10 @@ var modalR = document.getElementById('id02');
 //     }
 // };
 
-
+$(document).on('click', '#forgot', function( event ) {
+   console.log("The user forgot password");
+   alert("Sorry " + $('#unameLog').val() + ".  I don't have time to support this.  You shouldn't be forgetting your password.");
+});
 
 $(document).ready(function () {
   console.log("Register");
