@@ -2,8 +2,8 @@ $(document).ready(function () {
   console.log("Entering Query");
     var i = 0;
     for (i = 0; i < localStorage.length; i++) {
-        var taskID = "task-" + i;
-        $('#taskList').append("<li id='" + taskID + "'>" + localStorage.getItem(taskID) + "</li>");
+        var reqID = "req-" + i;
+        $('#requestList').append("<li id='" + reqID + "'>" + localStorage.getItem(reqID) + "</li>");
     }
     $('#clear').click(function () {
         localStorage.clear();
@@ -13,7 +13,6 @@ $(document).ready(function () {
         if ($('#taskInput').val() !== "") {
             var taskID = "task-" + i;
             var taskMessage = $('#taskInput').val();
-            console.log("Submitting:");
             localStorage.setItem(taskID, taskMessage);
             $('#taskList').append("<li class='task' id='" + taskID + "'>" + taskMessage + "</li>");
             var task = $('#' + taskID);
@@ -39,6 +38,29 @@ $(document).ready(function () {
     $("button").click(function(){
       var id = $(this).attr('id');
       alert(id);
+      var reqID = "req-" + i;
+      var checkIn = $('#cIn').val();
+      var checkOut = $('#cOut').val();
+      var guests = $('#guests').val();
+      var room = $('#room').val();
+
+      if($('#cIn').val() !== "" && $('#cOut').val() !== "" && $('#guests').val() !== "") {
+        var fullRequest = id + ": " + "Check-In Date: " + checkIn + ", Check-Out Date: " + checkOut;
+        fullRequest = fullRequest + ", Guest: " + guests + ", Room Type: " + room;
+        console.log("Requesting --> " + fullRequest);
+
+        localStorage.setItem(reqID, fullRequest);
+        $('#requestList').append("<li class='request' id='" + reqID + "'>" + fullRequest + "</li>");
+        var req = $('#' + reqID);
+        req.css('display', 'none');
+        req.slideDown();
+        $('#cIn').val("");
+        $('#cOut').val("");
+        $('#guests').val("");
+        ++i;
+      } else {
+        alert("Cannot Book Request.  Please complete all form fields")
+      }
     });
 
 });
