@@ -1,9 +1,11 @@
 $(document).ready(function () {
   console.log("Entering Query");
     var i = 0;
-    for (i = 0; i < localStorage.length; i++) {
+    for (i = 0; i <= localStorage.length; i++) {
         var reqID = "req-" + i;
-        $('#requestList').append("<li id='" + reqID + "'>" + localStorage.getItem(reqID) + "</li>");
+        if(localStorage.getItem(reqID) !== null) {
+          $('#requestList').append("<li id='" + reqID + "'>" + localStorage.getItem(reqID) + "</li>");
+      }
     }
     $('#clear').click(function () {
         localStorage.clear();
@@ -24,27 +26,44 @@ $(document).ready(function () {
         return false;
     });
 
-    $('#taskList').on("click", "li", function (event) {
-      console.log("Submitting click");
+    $('#requestList').on("click", "li", function (event) {
         self = $(this);
-        taskID = self.attr('id');
-        localStorage.removeItem(taskID);
-        self.slideUp('slow', function () {
-            self.remove();
-        });
-
+        reqID = self.attr('id');
+        if(confirm("Are you sure you want to remove " + localStorage.getItem(reqID) + "?")) {
+          localStorage.removeItem(reqID);
+          self.slideUp('slow', function () {
+              self.remove();
+          });
+        }
     });
 
     $("button").click(function(){
       var id = $(this).attr('id');
-      alert(id);
-      var reqID = "req-" + i;
-      var checkIn = $('#cIn').val();
-      var checkOut = $('#cOut').val();
-      var guests = $('#guests').val();
-      var room = $('#room').val();
+      var reqID = "";
+      var checkIn = "";
+      var checkOut = "";
+      var guests = "";
+      var room = "";
+      reqID = "req-" + i;
 
-      if($('#cIn').val() !== "" && $('#cOut').val() !== "" && $('#guests').val() !== "") {
+      if(id.localeCompare("Shangri-La Hotel") === 0) {
+        checkIn = $('#cIn0').val();
+        checkOut = $('#cOut0').val();
+        guests = $('#guests0').val();
+        room = $('#room0').val();
+      } else if(id.localeCompare("JPark Island Resort and Waterpark") === 0) {
+        checkIn = $('#cIn1').val();
+        checkOut = $('#cOut1').val();
+        guests = $('#guests1').val();
+        room = $('#room1').val();
+      } else if(id.localeCompare("Plantation Bay Resort and Spa") === 0) {
+        checkIn = $('#cIn2').val();
+        checkOut = $('#cOut2').val();
+        guests = $('#guests2').val();
+        room = $('#room2').val();
+      }
+
+      if(checkIn !== "" && checkOut !== "" && guests !== "") {
         var fullRequest = id + ": " + "Check-In Date: " + checkIn + ", Check-Out Date: " + checkOut;
         fullRequest = fullRequest + ", Guest: " + guests + ", Room Type: " + room;
         console.log("Requesting --> " + fullRequest);
@@ -54,13 +73,28 @@ $(document).ready(function () {
         var req = $('#' + reqID);
         req.css('display', 'none');
         req.slideDown();
-        $('#cIn').val("");
-        $('#cOut').val("");
-        $('#guests').val("");
-        ++i;
+        console.log("Total stored: " + localStorage.length);
+        clearFields();
+        i++;
       } else {
         alert("Cannot Book Request.  Please complete all form fields")
       }
     });
-
 });
+
+function clearFields() {
+  $('#cIn0').val("");
+  $('#cOut0').val("");
+  $('#guests0').val("");
+  $('#room0').val("Deluxe");
+
+  $('#cIn1').val("");
+  $('#cOut1').val("");
+  $('#guests1').val("");
+  $('#room1').val("Deluxe");
+
+  $('#cIn2').val("");
+  $('#cOut2').val("");
+  $('#guests2').val("");
+  $('#room2').val("Deluxe");
+}

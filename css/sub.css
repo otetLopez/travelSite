@@ -205,6 +205,15 @@ span.psw {
   padding-top: 16px;
 }
 
+#requestList {
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+#requestList li {
+  margin-bottom: 0.5em;
+}
+
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
