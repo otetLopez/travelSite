@@ -103,8 +103,10 @@ $(document).ready(function () {
           }
       }  else if(id.localeCompare("register") === 0) {
           status = document.getElementById('login').innerHTML;
-          if(status.localeCompare("Log On") === 0) {
+          if(status.localeCompare("Sign Out") === 0) {
             alert("Sign out current user before registering new account");
+            clearFields();
+            dismissForm();
           }
       }
     }
