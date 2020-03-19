@@ -86,7 +86,6 @@
               <li><a href="construction.html">Malapascua</a></li>
             </ul>
           </aside>
-        <script type="text/javascript" src="script/main.js"></script>
         </div>
           <div id="id01" class="modal">
             <form class="modal-content animate" action="/action_page.php" method="post">
@@ -119,21 +118,22 @@
           <div class="container">
             <h1>Register</h1>
             <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required>
+            <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
             <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
-            <button class="log" id="log02" type="submit">REGISTER</button>
-            <label>
-              <input type="checkbox" checked="checked" name="remember"> Remember me
-            </label>
+            <input type="password" placeholder="Enter Password" name="psw" id="psw1" required>
+            <label for="psw"><b>Confirm Password</b></label>
+            <input type="password" placeholder="Confirm Password" name="psw" id="psw2" required>
+            <button type="button" class="log" id="log02">REGISTER</button>
           </div>
 
           <div class="container" style="background-color:#f1f1f1">
             <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
-            <span class="psw">Forgot <a href="#">password?</a></span>
           </div>
         </form>
       </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script type="text/javascript" src="script/main.js"></script>
+      <script type="text/javascript" src="script/log.js"></script>
       </main>
       <footer>
         <!-- You have a footer containing social media links and the copyright of your page -->

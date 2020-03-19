@@ -233,7 +233,7 @@ span.psw {
   width: 80%; /* Could be more or less, depending on screen size */
 }
 
-#log {
+.log {
   font-family: Copperplate, Optima, Calibri;
   font-size: 16px;
   /* text-decoration-color: #175076; */
