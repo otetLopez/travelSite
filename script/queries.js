@@ -45,25 +45,31 @@ $(document).ready(function () {
       var guests = "";
       var room = "";
       reqID = "req-" + i;
+      var isBook = false;
 
       if(id.localeCompare("Shangri-La Hotel") === 0) {
         checkIn = $('#cIn0').val();
         checkOut = $('#cOut0').val();
         guests = $('#guests0').val();
         room = $('#room0').val();
+        isBook = true;
       } else if(id.localeCompare("JPark Island Resort and Waterpark") === 0) {
         checkIn = $('#cIn1').val();
         checkOut = $('#cOut1').val();
         guests = $('#guests1').val();
         room = $('#room1').val();
+        isBook = true
       } else if(id.localeCompare("Plantation Bay Resort and Spa") === 0) {
         checkIn = $('#cIn2').val();
         checkOut = $('#cOut2').val();
         guests = $('#guests2').val();
         room = $('#room2').val();
+        isBook = true;
+      } else {
+        isBook = false;
       }
 
-      if(checkIn !== "" && checkOut !== "" && guests !== "") {
+      if(checkIn !== "" && checkOut !== "" && guests !== "" && isBook === true) {
         var fullRequest = id + ": " + "Check-In Date: " + checkIn + ", Check-Out Date: " + checkOut;
         fullRequest = fullRequest + ", Guest: " + guests + ", Room Type: " + room;
         console.log("Requesting --> " + fullRequest);
@@ -77,7 +83,9 @@ $(document).ready(function () {
         clearFields();
         i++;
       } else {
-        alert("Cannot Book Request.  Please complete all form fields")
+        if(isBook === true) {
+          alert("Cannot Book Request.  Please complete all form fields");
+        }
       }
     });
 });
