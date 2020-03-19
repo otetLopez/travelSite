@@ -9,73 +9,106 @@ var modalR = document.getElementById('id02');
 //     }
 // };
 
+
+
 $(document).ready(function () {
   console.log("Register");
-    var i = 0;
-    var usrIdx = 0;
+  var status = document.getElementById('login').innerHTML;
+  var loggedUser = "undefined";
+  var i = 0;
+  var usrIdx = 0;
     // retrieveUsers();
-    for (i = 0; i <= localStorage.length; i++) {
-      var usrID = "usr-" + i;
-      var pwdID = "psw-" + i;
-      var currUsr = localStorage.getItem(usrID);
-      var currPwd = localStorage.getItem(pwdID);
-      if(currUsr !== null) {
-        usrIdx = i;
-        console.log("Retrieved user: " + currUsr + "; " + currPwd);
-
-      }
+  for (i = 0; i <= localStorage.length; i++) {
+    var usrID = "usr-" + i;
+    var pwdID = "psw-" + i;
+    var currUsr = localStorage.getItem(usrID);
+    var currPwd = localStorage.getItem(pwdID);
+    if(currUsr !== null) {
+      usrIdx = i;
+      console.log("Retrieved user: " + currUsr + "; " + currPwd);
     }
+  }
 
-    $("button").click(function(){
-      console.log("Button Clicked");
-      if($(this).attr('id') !== undefined) {
-        var id = $(this).attr('id');
-        console.log("This is the ID : " + id);
-        if(id.localeCompare("log01") === 0) {
-          console.log("Logging In");
-          var uname =  $('#unameLog').val();
-          var pwd =  $('#pswLog').val();
-          if(uname !== "" && pwd !== "") {
-            if(checkCredentials(uname, pwd) === true) {
-              alert("You are successfully logged")
-              clearFields();
-              dismissForm();
-            } else {
-              alert("Please check if inputted user or pasword is correct.")
-            }
+  // Let us find out if a user is currently logged on
+  loggedUser = localStorage.getItem("currUser");
+  if(loggedUser !== null && (loggedUser.localeCompare("undefined") !== 0)) {
+    console.log("A user is logged on: " + loggedUser);
+    document.getElementById('login').innerHTML = "Sign Out";
+  } else {
+    loggedUser = "undefined";
+  }
+
+
+  $("button").click(function(){
+    console.log("Button Clicked");
+    status = document.getElementById('login').innerHTML;
+    console.log("Current Status is " + status);
+
+    if($(this).attr('id') !== undefined) {
+      var id = $(this).attr('id');
+      console.log("This is the ID : " + id);
+      if(id.localeCompare("log01") === 0) {
+        console.log("Logging In :" + status);
+        var uname =  $('#unameLog').val();
+        var pwd =  $('#pswLog').val();
+        if(uname !== "" && pwd !== "") {
+          if(checkCredentials(uname, pwd) === true) {
+            alert("You are successfully logged");
+            localStorage.setItem("currUser", uname);
+            document.getElementById('login').innerHTML="Sign Out";
+            clearFields();
+            dismissForm();
           } else {
-            alert("Please complete filling the fields")
+            alert("Please check if inputted user or pasword is correct.");
           }
-
-        } else if (id.localeCompare("log02") === 0) {
-          console.log("User Registering");
-          var uname =  $('#uname').val();
-          var pwd =  $('#psw1').val();
-          var cpwd =  $('#psw2').val();
-          if(uname !== "" && pwd !== "" && cpwd !== "") {
-            console.log(uname + ", " + pwd + ", " + cpwd);
-            if(pwd.localeCompare(cpwd) !== 0) {
-              alert("Passwords entered do not match!")
-            } else if (checkUser(uname) === false) { //Should not do this here but i am so sleepy
-              alert("Username already exist!  Try another username.")
-            } else if (pwd.length < 6){
-              alert("Sorry!  Your password must contain  a capital letter, two numbers, a symbol, an inspiring message, a spell, a gang sign, a heiroglyph and a blood of a virgin.")
-              alert("Just Kidding! Just input password at least length of 6");
-            } else {
-              var usrID = "usr-" + usrIdx;
-              var pswID = "psw-" + usrIdx;
-              localStorage.setItem(usrID, uname);
-              localStorage.setItem(pswID, pwd);
-              console.log("Total stored: " + localStorage.length);
-              alert("Register Successful!  Please Log In.");
-              usrIdx++;
-              clearFields();
-              dismissForm();
-            }
+        } else {
+          alert("Please complete filling the fields");
+        }
+      } else if (id.localeCompare("log02") === 0) {
+        console.log("User Registering");
+        var uname =  $('#uname').val();
+        var pwd =  $('#psw1').val();
+        var cpwd =  $('#psw2').val();
+        if(uname !== "" && pwd !== "" && cpwd !== "") {
+          console.log(uname + ", " + pwd + ", " + cpwd);
+          if(pwd.localeCompare(cpwd) !== 0) {
+            alert("Passwords entered do not match!")
+          } else if (checkUser(uname) === false) { //Should not do this here but i am so sleepy
+            alert("Username already exist!  Try another username.")
+          } else if (pwd.length < 6){
+            alert("Sorry!  Your password must contain  a capital letter, two numbers, a symbol, an inspiring message, a spell, a gang sign, a heiroglyph and a blood of a virgin.")
+            alert("Just Kidding! Just input password at least length of 6");
+          } else {
+            var usrID = "usr-" + usrIdx;
+            var pswID = "psw-" + usrIdx;
+            localStorage.setItem(usrID, uname);
+            localStorage.setItem(pswID, pwd);
+            console.log("Total stored: " + localStorage.length);
+            alert("Register Successful!  Please Log In.");
+            usrIdx++;
+            clearFields();
+            dismissForm();
           }
         }
+      } else if(id.localeCompare("login") === 0) {
+          status = document.getElementById('login').innerHTML;
+          if(status.localeCompare("Sign Out") === 0) {
+            if(confirm("Are you sure you want to Sign out?")) {
+              console.log("Signing out : " + status);
+              localStorage.setItem("currUser", "undefined");
+              document.getElementById('login').innerHTML="Log On"
+              clearFields();
+              dismissForm();
+            }
+          }
+      }  else if(id.localeCompare("register") === 0) {
+          status = document.getElementById('login').innerHTML;
+          if(status.localeCompare("Log On") === 0) {
+            alert("Sign out current user before registering new account");
+          }
       }
-    });
+    }
+  });
 });
 
 function checkCredentials(uname, pwd) {
