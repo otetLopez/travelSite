@@ -52,6 +52,9 @@ $(document).ready(function () {
         guests = $('#guests2').val();
         room = $('#room2').val();
         isBook = true;
+      } else if((id.localeCompare("Moalboal Tour") === 0) || (id.localeCompare("Carnaza Tour") === 0) || (id.localeCompare("Oslob Tour") === 0) || (id.localeCompare("Samboan Tour") === 0)) {
+        console.log("[QUERIES] We don't yet cater tour packages")
+        alert("This is not supported.  Try to contact us or try our Hotel and Resorts Services.")
       } else {
         isBook = false;
         console.log("[QUERIES] Book should be false");
@@ -84,11 +87,11 @@ $(document).ready(function () {
     });
 
     function retrievedLoggedUser() {
-      document.getElementById("requestList").innerHTML = "";
       loggedUser = localStorage.getItem("currUser");
       console.log("[QUERIES] Logged user retrieved: " + loggedUser);
       element = document.getElementById("instruct");
       if(typeof(element) != 'undefined' && element != null){
+        document.getElementById("requestList").innerHTML = "";
         if(loggedUser !== null && (loggedUser.localeCompare("undefined") !== 0)) {
           console.log("Retrieving requests fo user: " + loggedUser);
           var requestFlag = false;
