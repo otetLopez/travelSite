@@ -1,24 +1,26 @@
 $(document).ready(function () {
   console.log("Entering Query");
     let loggedUser = "undefined";
+    var idNum = 0;
     var i = 0;
 
     // Let us find out if a user is currently logged on
     var element = document.getElementById("instruct");
     retrievedLoggedUser();
+    console.log("[QUERIES] status of logs : " + i);
 
     $('#clear').click(function () {
         localStorage.clear();
     });
 
     $('#requestList').on("click", "li", function (event) {
-      retrievedLoggedUser();
         self = $(this);
         reqID = self.attr('id');
         if(confirm("Are you sure you want to remove " + localStorage.getItem(reqID) + "?")) {
           localStorage.removeItem(reqID);
           self.slideUp('slow', function () {
               self.remove();
+              retrievedLoggedUser();
           });
         }
     });
@@ -31,7 +33,8 @@ $(document).ready(function () {
       var checkOut = "";
       var guests = "";
       var room = "";
-      reqID = "req-" + loggedUser + "-" +i;
+      var newId = parseInt(localStorage.getItem("maxID")) + 1;
+      reqID = "req-" + loggedUser + "-" + newId;
       var isBook = false;
 
       if(id.localeCompare("Shangri-La Hotel") === 0) {
@@ -74,6 +77,8 @@ $(document).ready(function () {
           console.log("Total stored: " + localStorage.length);
           clearFields();
           i++;
+          idNum++;
+          localStorage.setItem("maxID", parseInt(localStorage.getItem("maxID")) + 1);
         } else {
           if(isBook === true) {
             alert("Cannot Book Request.  Please complete all form fields");
@@ -88,6 +93,7 @@ $(document).ready(function () {
 
     function retrievedLoggedUser() {
       loggedUser = localStorage.getItem("currUser");
+      idNum = localStorage.getItem("maxID");
       console.log("[QUERIES] Logged user retrieved: " + loggedUser);
       element = document.getElementById("instruct");
       if(typeof(element) != 'undefined' && element != null){
@@ -95,13 +101,15 @@ $(document).ready(function () {
         if(loggedUser !== null && (loggedUser.localeCompare("undefined") !== 0)) {
           console.log("Retrieving requests fo user: " + loggedUser);
           var requestFlag = false;
-          for (i = 0; i <= localStorage.length; i++) {
-              var reqID = "req-" + loggedUser + "-" +i;
+          var limit = localStorage.getItem("maxID");
+          for (i = 0; i <= limit; i++) {
+              var reqID = "req-" + loggedUser + "-" + i;
               if(localStorage.getItem(reqID) !== null) {
                 $('#requestList').append("<li id='" + reqID + "'>" + localStorage.getItem(reqID) + "</li>");
                 requestFlag = true;
             }
           }
+          console.log("[QUERIES] total : " + i);
           if(requestFlag === true) {
             document.getElementById("instruct").innerHTML = "Click on item to remove from list";
           } else {
@@ -110,6 +118,8 @@ $(document).ready(function () {
         } else {
           document.getElementById("instruct").innerHTML = "Log In to view your requests."
         }
+      } else {
+        i = localStorage.getItem("maxID");
       }
     }
 });

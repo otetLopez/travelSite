@@ -21,7 +21,8 @@ $(document).ready(function () {
   var i = 0;
   var usrIdx = 0;
     // retrieveUsers();
-  for (i = 0; i <= localStorage.length; i++) {
+  var idNum = localStorage.length + localStorage.getItem("maxID");
+  for (i = 0; i <= idNum; i++) {
     var usrID = "usr-" + i;
     var pwdID = "psw-" + i;
     var currUsr = localStorage.getItem(usrID);
@@ -31,6 +32,8 @@ $(document).ready(function () {
       console.log("Retrieved user: " + currUsr + "; " + currPwd);
     }
   }
+
+  i = localStorage.getItem("maxID");
 
   // Let us find out if a user is currently logged on
   loggedUser = localStorage.getItem("currUser");
@@ -89,6 +92,7 @@ $(document).ready(function () {
             console.log("Total stored: " + localStorage.length);
             alert("Register Successful!  Please Log In.");
             usrIdx++;
+            localStorage.setItem("maxID", parseInt(localStorage.getItem("maxID")) + 1);
             clearFields();
             dismissForm();
           }
