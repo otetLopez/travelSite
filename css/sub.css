@@ -280,6 +280,10 @@ span.psw {
   to {transform: scale(1)}
 }
 
+.instruct {
+
+}
+
 /* This is for the footer and social links */
 footer {
   font-size: 0.7em;
