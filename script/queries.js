@@ -33,7 +33,15 @@ $(document).ready(function () {
       var checkOut = "";
       var guests = "";
       var room = "";
-      var newId = parseInt(localStorage.getItem("maxID")) + 1;
+      var newId = 0;
+
+      if(parseInt(localStorage.getItem("maxID")) > 0) {
+        console.log("[QUERIES] ID is greater than 0");
+        newId = parseInt(localStorage.getItem("maxID")) + 1;
+      } else {
+        console.log("[QUERIES] ID is NaN");
+        newId = 1;
+      }
       reqID = "req-" + loggedUser + "-" + newId;
       var isBook = false;
 
@@ -78,7 +86,11 @@ $(document).ready(function () {
           clearFields();
           i++;
           idNum++;
-          localStorage.setItem("maxID", parseInt(localStorage.getItem("maxID")) + 1);
+          var value = 0;
+          if (parseInt(localStorage.getItem("maxID")) > 0) {
+            value = parseInt(localStorage.getItem("maxID"));
+          }
+          localStorage.setItem("maxID",  value + 1);
         } else {
           if(isBook === true) {
             alert("Cannot Book Request.  Please complete all form fields");

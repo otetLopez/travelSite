@@ -89,10 +89,14 @@ $(document).ready(function () {
             var pswID = "psw-" + usrIdx;
             localStorage.setItem(usrID, uname);
             localStorage.setItem(pswID, pwd);
-            console.log("Total stored: " + localStorage.length);
+            console.log("Total stored: " + localStorage.length + " registering: " + userID);
             alert("Register Successful!  Please Log In.");
             usrIdx++;
-            localStorage.setItem("maxID", parseInt(localStorage.getItem("maxID")) + 1);
+            var value = 0;
+            if(parseInt(localStorage.getItem("maxID")) > 0) {
+              value = parseInt(localStorage.getItem("maxID"));
+            }
+            localStorage.setItem("maxID", value + 1);
             clearFields();
             dismissForm();
           }
